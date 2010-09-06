@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+@external gwt-MenuBar gwt-MenuItem gwt-MenuItem-selected gwt-MenuItem-disabled;
+
+.menu {
+	background: #ffffff;
+	border: 1px solid #777;
+	\-moz-border-radius: 3px;
+	\-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.menu .gwt-MenuItem-selected {
+	background-color: #aac5f7;	
+	color: #fff;
+}

@@ -10,41 +10,41 @@
 }
 
 .middle {
-    border-left-width: 0px;	
+    border-left-width: 0px !important;	
 }
 
 .right {
-    border-left-width: 0px;
+    border-left-width: 0px !important;
 }
 
 @if user.agent safari {
   .left {
-	\-webkit-border-top-right-radius: 0px;
-    \-webkit-border-bottom-right-radius: 0px;
+	\-webkit-border-top-right-radius: 0px !important;
+    \-webkit-border-bottom-right-radius: 0px !important;
   }
   .middle {
-    \-webkit-border-top-right-radius: 0px;
-    \-webkit-border-bottom-right-radius: 0px;
-    \-webkit-border-top-left-radius: 0px;
-    \-webkit-border-bottom-left-radius: 0px;
+    \-webkit-border-top-right-radius: 0px !important;
+    \-webkit-border-bottom-right-radius: 0px !important;
+    \-webkit-border-top-left-radius: 0px !important;
+    \-webkit-border-bottom-left-radius: 0px !important;
   }	
   .right {
-    \-webkit-border-top-left-radius: 0px;
-    \-webkit-border-bottom-left-radius: 0px;  
+    \-webkit-border-top-left-radius: 0px !important;
+    \-webkit-border-bottom-left-radius: 0px !important;  
   }
 } @elif user.agent gecko1_9 gecko1_8 gecko {
   .left {
-    \-moz-border-radius-topright: 0px;
-    \-moz-border-radius-bottomright: 0px;
+    \-moz-border-radius-topright: 0px !important;
+    \-moz-border-radius-bottomright: 0px !important;
   }
   .middle {
-    \-moz-border-radius-topright: 0px;
-    \-moz-border-radius-bottomright: 0px;
-    \-moz-border-radius-topleft: 0px;
-    \-moz-border-radius-bottomleft: 0px;
+    \-moz-border-radius-topright: 0px !important;
+    \-moz-border-radius-bottomright: 0px !important;
+    \-moz-border-radius-topleft: 0px !important;
+    \-moz-border-radius-bottomleft: 0px !important;
   }	
   .right {
-    \-moz-border-radius-topleft: 0px;
-    \-moz-border-radius-bottomleft: 0px;
+    \-moz-border-radius-topleft: 0px !important;
+    \-moz-border-radius-bottomleft: 0px !important;
   }
 }
