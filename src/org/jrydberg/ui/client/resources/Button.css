@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+
+.button {
+	border: 1px solid #777;
+    line-height: 20px;
+}
+
+button:focus { 
+    outline: none; 
+}
+
+button::-moz-focus-inner { 
+	border: 0; 
+	padding; 0;
+}
+
+@if user.agent safari {
+  .button {
+	\-webkit-border-radius: 3px;
+	\-webkit-box-shadow: #fff 0px 1px;
+    background-image: literal('-webkit-gradient(linear, center top, center bottom, from(#f0f0f0), to(#c8c8c8))');
+    \-webkit-box-sizing: border-box;
+  }
+} @elif user.agent gecko1_9 gecko1_8 {
+  .button {
+	background-image: literal('-moz-linear-gradient(center top, #f0f0f0, #c8c8c8)');
+    \-moz-box-sizing: border-box;
+    \-moz-box-shadow: #fff 0px 1px;
+    \-moz-border-radius: 3px;
+  }
+} @else {
+  .button {
+	border-radius: 3px;
+	box-shadow: #fff 0px 1px;
+	background-color: #d8d8d8;
+	box-sizing: border-box;
+  }
+}
+

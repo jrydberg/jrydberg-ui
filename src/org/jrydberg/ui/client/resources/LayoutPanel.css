@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+
+.layout {
+  position: absolute;
+  z-index: 100;
+  \-moz-user-focus: none;
+}

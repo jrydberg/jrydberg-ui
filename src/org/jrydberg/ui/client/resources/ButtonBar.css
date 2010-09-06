@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+
+.buttonBar {
+}
+
+.button {
+    position: absolute;
+    top: 0;
+    bottom: 0;	
+}
+
+.middle {
+    border-left-width: 0px;	
+}
+
+.right {
+    border-left-width: 0px;
+}
+
+@if user.agent safari {
+  .left {
+	\-webkit-border-top-right-radius: 0px;
+    \-webkit-border-bottom-right-radius: 0px;
+  }
+  .middle {
+    \-webkit-border-top-right-radius: 0px;
+    \-webkit-border-bottom-right-radius: 0px;
+    \-webkit-border-top-left-radius: 0px;
+    \-webkit-border-bottom-left-radius: 0px;
+  }	
+  .right {
+    \-webkit-border-top-left-radius: 0px;
+    \-webkit-border-bottom-left-radius: 0px;  
+  }
+} @elif user.agent gecko1_9 gecko1_8 gecko {
+  .left {
+    \-moz-border-radius-topright: 0px;
+    \-moz-border-radius-bottomright: 0px;
+  }
+  .middle {
+    \-moz-border-radius-topright: 0px;
+    \-moz-border-radius-bottomright: 0px;
+    \-moz-border-radius-topleft: 0px;
+    \-moz-border-radius-bottomleft: 0px;
+  }	
+  .right {
+    \-moz-border-radius-topleft: 0px;
+    \-moz-border-radius-bottomleft: 0px;
+  }
+}

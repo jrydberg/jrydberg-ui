@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+.textBox {
+	border: 1px solid #777;
+    line-height: 20px;
+    margin: 0;
+}
+
+@if user.agent safari {
+  .textBox {
+	-webkit-box-shadow: #fff 0px 1px;
+    background-image: literal('-webkit-gradient(linear, center top, center bottom, from(#f0f0f0), to(#ffffff))');
+    -webkit-box-sizing: border-box;
+    line-height: 20px;
+  }
+} @elif user.agent gecko1_9 gecko1_8 {
+  .textBox {
+	background-image: literal('-moz-linear-gradient(center top, #f0f0f0, #ffffff)');
+    -moz-box-sizing: border-box;
+    -moz-box-shadow: #fff 0px 1px;	
+  }
+} @else {
+  .textBox {
+	box-shadow: #fff 0px 1px;
+	background-color: #f0f0f0;
+	box-sizing: border-box;
+  }
+}
