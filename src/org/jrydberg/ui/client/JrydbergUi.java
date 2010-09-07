@@ -53,6 +53,9 @@ public class JrydbergUi implements EntryPoint {
           .add(new MenuButton(Resources.INSTANCE.plusIcon(), menu), 40)
           .add(new Button("-"), 30))
         .at(10, 80).size(100, 24);
+  
+    layoutPanel.add(new MenuButton("Hello", menu))
+        .at(120, 80).size(100, 24);
     
 //    layoutPanel.add(new MenuButton(Resources.INSTANCE.plusIcon(), null))
 //        .at(10, 80).size(100, 24);
