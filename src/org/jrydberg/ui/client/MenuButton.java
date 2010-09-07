@@ -18,6 +18,8 @@ package org.jrydberg.ui.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.logical.shared.CloseEvent;
+import com.google.gwt.event.logical.shared.CloseHandler;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.DOM;
@@ -26,17 +28,21 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.MenuBar;
+import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.PopupPanel.PositionCallback;
 
 /**
  * @author jrydberg
  * 
  */
-public class MenuButton extends Button implements ClickHandler {
+public class MenuButton extends Button implements ClickHandler,
+    CloseHandler<PopupPanel> {
 
   public interface Css extends CssResource {
     String button();
-    
+
+    String open();
+
   }
 
   public interface Resources extends MenuBar.Resources {
@@ -48,8 +54,10 @@ public class MenuButton extends Button implements ClickHandler {
   }
 
   private PopupMenu menu;
-  
+
   private static Resources DEFAULT_RESOURCES;
+
+  private final Resources resources;
 
   private static Resources getDefaultResources() {
     if (DEFAULT_RESOURCES == null) {
@@ -57,7 +65,7 @@ public class MenuButton extends Button implements ClickHandler {
     }
     return DEFAULT_RESOURCES;
   }
-  
+
   public MenuButton(String text, PopupMenu menu) {
     this(getDefaultResources(), text, menu);
   }
@@ -85,8 +93,10 @@ public class MenuButton extends Button implements ClickHandler {
     getElement().appendChild(image.getElement());
     // Initialize popup-menu
     this.menu = menu;
+    this.resources = resources;
     // Attach listener
     super.addClickHandler(this);
+    menu.addCloseHandler(this);
   }
 
   public void setImage(Image image) {
@@ -104,18 +114,25 @@ public class MenuButton extends Button implements ClickHandler {
 
   @Override
   public void onClick(ClickEvent event) {
+    addStyleName(resources.menuButtonCss().open());
     menu.setPopupPositionAndShow(new PositionCallback() {
       @Override
       public void setPosition(int offsetWidth, int offsetHeight) {
-        int top = (MenuButton.this.getAbsoluteTop() + MenuButton.this.getOffsetHeight());
+        int top = (MenuButton.this.getAbsoluteTop() + MenuButton.this
+            .getOffsetHeight());
         if ((top + offsetHeight + 50) >= Window.getClientHeight()) {
           top = MenuButton.this.getAbsoluteTop() - offsetHeight;
-        } 
+        }
 
         int left = MenuButton.this.getAbsoluteLeft();
         menu.setPopupPosition(left, top);
       }
     });
   }
-  
+
+  @Override
+  public void onClose(CloseEvent<PopupPanel> event) {
+    removeStyleName(resources.menuButtonCss().open());
+  }
+
 }

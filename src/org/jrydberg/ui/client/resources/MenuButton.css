@@ -18,6 +18,9 @@
     background-image: literal('-webkit-gradient(linear, center top, center bottom, from(#f0f0f0), to(#c8c8c8))');
     \-webkit-box-sizing: border-box;
   }
+  .open {
+    background-image: literal('-webkit-gradient(linear, center top, center bottom, from(#c8c8c8), to(#f0f0f0)) !important');
+  }
 } @elif user.agent gecko1_9 gecko1_8 {
   .button {
 	background-image: literal('-moz-linear-gradient(center top, #f0f0f0, #c8c8c8)');
@@ -25,12 +28,18 @@
     \-moz-box-shadow: #fff 0px 1px;
     \-moz-border-radius: 3px;
   }
+  .open {
+	background-image: literal('-moz-linear-gradient(center top, #c8c8c8, #f0f0f0)');
+  }
 } @else {
   .button {
 	border-radius: 3px;
 	box-shadow: #fff 0px 1px;
 	background-color: #d8d8d8;
 	box-sizing: border-box;
+  }
+  .open {
+	background-color: #a0a0a0;
   }
 }
 
