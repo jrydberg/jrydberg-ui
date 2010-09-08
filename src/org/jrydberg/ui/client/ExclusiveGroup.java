@@ -42,6 +42,7 @@ public class ExclusiveGroup implements ValueChangeHandler<Boolean> {
   }
   
   public ExclusiveGroup add(HasValue<Boolean> button) {
+    // FIXME: ugly
     buttons.add(button);
     handlers.add(button.addValueChangeHandler(this));
     return this;
