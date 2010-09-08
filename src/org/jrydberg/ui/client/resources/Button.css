@@ -2,6 +2,8 @@
 
 .button {
 	border: 1px solid #777;
+	text-align: center;
+	padding: 0;
 }
 
 button:focus, .focus { 
@@ -22,6 +24,12 @@ button:focus, .focus {
 button:\:\-moz-focus-inner { 
 	border: 0; 
 	padding: 0;
+}
+
+.button img {
+    margin: 0 0 -3px 0 !important;
+    padding: 0;
+    border: none;	
 }
 
 @if user.agent safari {

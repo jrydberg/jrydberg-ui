@@ -25,7 +25,6 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.MenuBar;
 import com.google.gwt.user.client.ui.PopupPanel;
@@ -45,10 +44,7 @@ public class MenuButton extends Button implements ClickHandler,
 
   }
 
-  public interface Resources extends MenuBar.Resources {
-    @Source("resources/MenuButton.css")
-    Css menuButtonCss();
-
+  public interface Resources extends MenuBar.Resources, Button.Resources {
     @Source("resources/MenuButton-arrow.png")
     ImageResource menuButtonIcon();
   }
@@ -56,8 +52,6 @@ public class MenuButton extends Button implements ClickHandler,
   private PopupMenu menu;
 
   private static Resources DEFAULT_RESOURCES;
-
-  private final Resources resources;
 
   private static Resources getDefaultResources() {
     if (DEFAULT_RESOURCES == null) {
@@ -85,15 +79,13 @@ public class MenuButton extends Button implements ClickHandler,
   }
 
   public MenuButton(Resources resources, PopupMenu menu) {
-    setStyleName(resources.menuButtonCss().button());
-    resources.menuButtonCss().ensureInjected();
+    super(resources);
     // Setup the button content:
     getElement().appendChild(DOM.createSpan());
     Image image = new Image(resources.menuButtonIcon());
     getElement().appendChild(image.getElement());
     // Initialize popup-menu
     this.menu = menu;
-    this.resources = resources;
     // Attach listener
     super.addClickHandler(this);
     menu.addCloseHandler(this);
@@ -101,7 +93,6 @@ public class MenuButton extends Button implements ClickHandler,
 
   public void setImage(Image image) {
     getElement().removeChild(getElement().getChild(0));
-    // Insert the image element:
     getElement().insertFirst(image.getElement());
   }
 
@@ -114,7 +105,7 @@ public class MenuButton extends Button implements ClickHandler,
 
   @Override
   public void onClick(ClickEvent event) {
-    addStyleName(resources.menuButtonCss().open());
+    addStyleName(resources.buttonCss().active());
     menu.setPopupPositionAndShow(new PositionCallback() {
       @Override
       public void setPosition(int offsetWidth, int offsetHeight) {
@@ -132,7 +123,7 @@ public class MenuButton extends Button implements ClickHandler,
 
   @Override
   public void onClose(CloseEvent<PopupPanel> event) {
-    removeStyleName(resources.menuButtonCss().open());
+    removeStyleName(resources.buttonCss().active());
   }
 
 }
