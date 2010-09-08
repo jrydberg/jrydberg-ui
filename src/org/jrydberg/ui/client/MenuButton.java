@@ -20,7 +20,6 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.CloseEvent;
 import com.google.gwt.event.logical.shared.CloseHandler;
-import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
@@ -36,13 +35,6 @@ import com.google.gwt.user.client.ui.PopupPanel.PositionCallback;
  */
 public class MenuButton extends Button implements ClickHandler,
     CloseHandler<PopupPanel> {
-
-  public interface Css extends CssResource {
-    String button();
-
-    String open();
-
-  }
 
   public interface Resources extends MenuBar.Resources, Button.Resources {
     @Source("resources/MenuButton-arrow.png")
@@ -66,6 +58,10 @@ public class MenuButton extends Button implements ClickHandler,
 
   public MenuButton(ImageResource image, PopupMenu menu) {
     this(getDefaultResources(), new Image(image), menu);
+  }
+
+  public MenuButton(Resources resources, ImageResource image, PopupMenu menu) {
+    this(resources, new Image(image), menu);
   }
 
   public MenuButton(Resources resources, Image image, PopupMenu menu) {
