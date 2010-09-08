@@ -57,8 +57,13 @@ public class JrydbergUi implements EntryPoint {
     layoutPanel.add(new MenuButton("Hello", menu))
         .at(120, 80).size(100, 24);
     
+    layoutPanel.add(new PopupButton("TEST"))
+        .at(10, 120).size(100, 24);
+    
 //    layoutPanel.add(new MenuButton(Resources.INSTANCE.plusIcon(), null))
 //        .at(10, 80).size(100, 24);
+    
+    layoutPanel.add(new ToggleButton()).at(10, 150).size(100, 24);
     
     RootLayoutPanel.get().add(layoutPanel);
   }

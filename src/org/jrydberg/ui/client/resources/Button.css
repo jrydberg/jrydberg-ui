@@ -4,8 +4,19 @@
 	border: 1px solid #777;
 }
 
-button:focus { 
+button:focus, .focus { 
     outline: none; 
+}
+
+.button:active, .active {
+	background-image: literal('-moz-linear-gradient(center top, #c8c8c8, #f0f0f0) !important');
+	\-moz-box-shadow: literal('0 2px 5px rgba(0, 0, 0, 0.5) inset !important');	
+}
+
+.button:hover, .hover {
+}
+
+.button[disabled], .disabled {
 }
 
 button:\:\-moz-focus-inner { 

@@ -31,6 +31,14 @@ public class Button extends com.google.gwt.user.client.ui.Button {
   public interface Css extends CssResource {
     String button();
     
+    String active();
+    
+    String disabled();
+    
+    String focus();
+    
+    String hover();
+    
   }
   
   public interface Resources extends ClientBundle {
